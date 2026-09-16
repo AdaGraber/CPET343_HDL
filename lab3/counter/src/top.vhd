@@ -1,11 +1,15 @@
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
 
 entity top is
   port (
     clk50                  : in std_logic;
     reset                  : in std_logic;
-    HEX3, HEX2, HEX1, HEX0 : out std_logic_vector(6 downto 0)
+    HEX3, HEX2, HEX1, HEX0 : out std_logic_vector(6 downto 0);
+    led : out std_logic
   );
 end top;
 
@@ -24,14 +28,14 @@ architecture beh of top is
   end component;
 
   --bcd component
-  component seven_seg is
-    port (
-      clk                    : in std_logic;
-      reset                  : in std_logic;
-      num_in                 : in std_logic_vector(7 downto 0);
-      HEX3, HEX2, HEX1, HEX0 : out std_logic_vector(6 downto 0)
-    );
-  end component;
+component seven_seg is
+  port (
+    clk                    : in std_logic;
+    reset                  : in std_logic;
+    num_in                 : in std_logic_vector(7 downto 0);
+    HEX3, HEX2, HEX1, HEX0 : out std_logic_vector(6 downto 0)
+  );
+end component;
 
   --adder component
   component generic_adder_beh is
@@ -58,7 +62,7 @@ begin
   --port map for generic_counter
   counter : generic_counter
   generic map(
-    max_count => 25000000
+    max_count => 50000000
   )
   port map
   (
@@ -81,28 +85,25 @@ begin
   );
 
   --port map for seven_segment
-  seven_segment : seven_seg
-  port map
-  (
-    clk    => clk50,
-    reset  => reset,
-    num_in => sum_sig,
-    HEX3   => HEX3,
-    HEX2   => HEX2,
-    HEX1   => HEX1,
-    HEX0   => HEX0
-  );
+ seven_segment : seven_seg
+ port map
+ (
+   clk    => clk50,
+   reset  => reset,
+   num_in => sum_sig,
+   HEX3   => HEX3,
+   HEX2   => HEX2,
+   HEX1   => HEX1,
+   HEX0   => HEX0
+ );
 
   --sum register process
-  sum_reg : process (clk50, reset, sum)
+  sum_reg : process (enabled, sum)
   begin
-    if (rising_edge(clk50)) then
-      if (reset = '1') then
-        sum_sig <= (others => '0');
-      elsif (enabled = '1') then
+      if (enabled = '1') then
         sum_sig <= sum;
-      end if;
     end if;
   end process;
 
+  led<= enabled;
 end beh;

@@ -1,5 +1,7 @@
 onerror {resume}
 radix define States {
+    "7'b1111111" "blnk" -color "red",
+    "7'b0111111" "-" -color "red",
     "7'b1000000" "0" -color "red",
     "7'b1111001" "1" -color "red",
     "7'b0100100" "2" -color "red",
@@ -19,8 +21,11 @@ add wave -noupdate -radix States /top_tb/uut/HEX3
 add wave -noupdate -radix States /top_tb/uut/HEX2
 add wave -noupdate -radix States /top_tb/uut/HEX1
 add wave -noupdate -radix States /top_tb/uut/HEX0
+add wave -noupdate /top_tb/uut/sum_sig
+add wave -noupdate /top_tb/uut/sum
+add wave -noupdate /top_tb/uut/enabled
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {50 ns} 0}
+WaveRestoreCursors {{Cursor 1} {460 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 177
 configure wave -valuecolwidth 40
@@ -36,4 +41,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {101 ns} {206 ns}
+WaveRestoreZoom {401 ns} {506 ns}
