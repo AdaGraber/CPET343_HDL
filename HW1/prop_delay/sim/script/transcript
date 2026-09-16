@@ -1,0 +1,30 @@
+# do sim.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:07:23 on Sep 16,2026
+# vcom -reportprogress 300 -93 -work work ../../src/prop_delay.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity prop_delay
+# -- Compiling architecture beh of prop_delay
+# End time: 10:07:24 on Sep 16,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:07:24 on Sep 16,2026
+# vcom -reportprogress 300 -93 -work work ../src/prop_delay_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity prop_delay_tb
+# -- Compiling architecture beh of prop_delay_tb
+# End time: 10:07:24 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" prop_delay_tb 
+# Start time: 10:07:24 on Sep 16,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.prop_delay_tb(beh)
+# Loading work.prop_delay(beh)
+# End time: 10:08:32 on Sep 16,2026, Elapsed time: 0:01:08
+# Errors: 0, Warnings: 0

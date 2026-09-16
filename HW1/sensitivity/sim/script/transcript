@@ -1,0 +1,31 @@
+# do sim.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:08:55 on Sep 16,2026
+# vcom -reportprogress 300 -93 -work work ../../src/sensitivity.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sensitivity
+# -- Compiling architecture beh of sensitivity
+# End time: 10:08:55 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:08:55 on Sep 16,2026
+# vcom -reportprogress 300 -93 -work work ../src/sensitivity_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sensitivity_tb
+# -- Compiling architecture beh of sensitivity_tb
+# ** Warning: ../src/sensitivity_tb.vhd(29): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 10:08:55 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vsim -voptargs="+acc" sensitivity_tb 
+# Start time: 10:08:56 on Sep 16,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.sensitivity_tb(beh)
+# Loading work.sensitivity(beh)
+# End time: 10:10:22 on Sep 16,2026, Elapsed time: 0:01:26
+# Errors: 0, Warnings: 0
