@@ -14,43 +14,47 @@
 # do sim.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 14:46:03 on Sep 16,2026
-# vcom -reportprogress 300 -93 -work work ../../src/blink.vhd 
+# Start time: 14:39:44 on Sep 16,2026
+# vcom -reportprogress 300 -93 -work work ../../src/seven_seg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity blink
-# -- Compiling architecture beh of blink
-# End time: 14:46:03 on Sep 16,2026, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity seven_seg
+# -- Compiling architecture arch of seven_seg
+# End time: 14:39:44 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
-# Start time: 14:46:03 on Sep 16,2026
-# vcom -reportprogress 300 -93 -work work ../src/blink_tb.vhd 
+# Start time: 14:39:44 on Sep 16,2026
+# vcom -reportprogress 300 -93 -work work ../src/seven_seg_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity blink_tb
-# -- Compiling architecture arch of blink_tb
-# End time: 14:46:03 on Sep 16,2026, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Compiling entity seven_seg_tb
+# -- Compiling architecture arch of seven_seg_tb
+# End time: 14:39:44 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" blink_tb 
-# Start time: 14:46:03 on Sep 16,2026
+# vsim -voptargs="+acc" seven_seg_tb 
+# Start time: 14:39:44 on Sep 16,2026
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.blink_tb(arch)#1
-# Loading work.blink(beh)#1
+# Loading ieee.numeric_std(body)
+# Loading work.seven_seg_tb(arch)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.seven_seg(arch)#1
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: ilg9251  Hostname: GOL-1360-01  ProcessID: 7456
-#           Attempting to use alternate WLF file "./wlfticmak6".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfticmak6
-# End time: 14:46:14 on Sep 16,2026, Elapsed time: 0:00:11
-# Errors: 0, Warnings: 2
+# ** Note: ****************** sequential testbench start ****************
+#    Time: 0 ns  Iteration: 0  Instance: /seven_seg_tb
+# ** Note: ****************** sequential testbench stop ****************
+#    Time: 480 ns  Iteration: 0  Instance: /seven_seg_tb

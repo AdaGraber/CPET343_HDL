@@ -8,7 +8,7 @@ use ieee.numeric_std.all;
 
 entity generic_adder_beh is
   generic (
-    bits    : integer := 4
+    bits    : integer := 8
   );
   port (
     a       : in  std_logic_vector(bits-1 downto 0);

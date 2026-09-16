@@ -22,7 +22,7 @@ component blink is
 end component;  
 
 signal output       : std_logic;
-constant period     : time := 20ns;                                              
+constant period     : time := 20 ns;                                              
 signal clk          : std_logic := '0';
 signal reset        : std_logic := '1';
 

@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity generic_counter is
   generic (
-    max_count       : integer := 3
+    max_count       : integer := 6000000
   );
   port (
     clk             : in  std_logic; 
@@ -18,7 +18,7 @@ end generic_counter;
 
 architecture beh of generic_counter  is
 
-signal count_sig    : integer range 0 to max_count := 0;
+signal count_sig    : integer range 0 to max_count := 3;
 
 begin
 process(clk,reset)
