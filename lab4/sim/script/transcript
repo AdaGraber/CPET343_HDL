@@ -1,0 +1,476 @@
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:24:20 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/synchronizer_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronizer_3bit
+# -- Compiling architecture beh of synchronizer_3bit
+# End time: 15:24:20 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:24:20 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/rising_edge_synchronizer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity rising_edge_synchronizer
+# -- Compiling architecture arch of rising_edge_synchronizer
+# End time: 15:24:20 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:24:20 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/bcd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity bcd
+# -- Compiling architecture arch of bcd
+# End time: 15:24:20 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:24:20 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/add_or_sub.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity add_or_sub
+# -- Compiling architecture arch of add_or_sub
+# End time: 15:24:20 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:24:20 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/lab4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity lab4
+# -- Compiling architecture arch of lab4
+# End time: 15:24:20 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:24:21 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../src/lab4_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Compiling entity lab4_tb
+# -- Compiling architecture test of lab4_tb
+# End time: 15:24:21 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" lab4_tb 
+# Start time: 15:24:21 on Sep 30,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.lab4_tb(test)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.lab4(arch)#1
+# Loading work.synchronizer_3bit(beh)#1
+# Loading work.rising_edge_synchronizer(arch)#1
+# Loading work.add_or_sub(arch)#1
+# Loading work.bcd(arch)#1
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: ilg9251  Hostname: GOL-1360-01  ProcessID: 18748
+#           Attempting to use alternate WLF file "./wlftgmt731".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftgmt731
+# ** Note: ****************** sequential testbench start ****************
+#    Time: 0 ns  Iteration: 0  Instance: /lab4_tb
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 80 ns  Iteration: 1  Instance: /lab4_tb/uut/add_or_sub_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 80 ns  Iteration: 1  Instance: /lab4_tb/uut/add_or_sub_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 720 ns  Iteration: 1  Instance: /lab4_tb/uut/add_or_sub_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 720 ns  Iteration: 1  Instance: /lab4_tb/uut/add_or_sub_inst
+# ** Note: ****************** sequential testbench stop ****************
+#    Time: 1290 ns  Iteration: 0  Instance: /lab4_tb
+do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:28:25 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/synchronizer_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronizer_3bit
+# -- Compiling architecture beh of synchronizer_3bit
+# End time: 15:28:25 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:28:25 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/rising_edge_synchronizer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity rising_edge_synchronizer
+# -- Compiling architecture arch of rising_edge_synchronizer
+# End time: 15:28:26 on Sep 30,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:28:26 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/bcd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity bcd
+# -- Compiling architecture arch of bcd
+# End time: 15:28:26 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:28:26 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/add_or_sub.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity add_or_sub
+# -- Compiling architecture arch of add_or_sub
+# End time: 15:28:26 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:28:26 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/lab4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity lab4
+# -- Compiling architecture arch of lab4
+# End time: 15:28:26 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:28:26 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../src/lab4_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Compiling entity lab4_tb
+# -- Compiling architecture test of lab4_tb
+# End time: 15:28:26 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:28:27 on Sep 30,2026, Elapsed time: 0:04:06
+# Errors: 4, Warnings: 6
+# vsim -voptargs="+acc" lab4_tb 
+# Start time: 15:28:27 on Sep 30,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.lab4_tb(test)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.lab4(arch)#1
+# Loading work.synchronizer_3bit(beh)#1
+# Loading work.rising_edge_synchronizer(arch)#1
+# Loading work.add_or_sub(arch)#1
+# Loading work.bcd(arch)#1
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: ilg9251  Hostname: GOL-1360-01  ProcessID: 18748
+#           Attempting to use alternate WLF file "./wlftjr62n2".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftjr62n2
+# ** Note: ****************** sequential testbench start ****************
+#    Time: 0 ns  Iteration: 0  Instance: /lab4_tb
+# ** Note: ****************** sequential testbench stop ****************
+#    Time: 1290 ns  Iteration: 0  Instance: /lab4_tb
+add wave -position end  sim:/lab4_tb/uut/sw_a
+add wave -position end  sim:/lab4_tb/uut/sw_b
+add wave -position end  sim:/lab4_tb/uut/pb_add
+add wave -position end  sim:/lab4_tb/uut/pb_sub
+add wave -position end  sim:/lab4_tb/uut/CLOCK_50
+add wave -position end  sim:/lab4_tb/uut/reset
+add wave -position end  sim:/lab4_tb/uut/seven_seg_a
+add wave -position end  sim:/lab4_tb/uut/seven_seg_b
+add wave -position end  sim:/lab4_tb/uut/seven_seg_result
+add wave -position end  sim:/lab4_tb/uut/sync_add_pb
+add wave -position end  sim:/lab4_tb/uut/sync_sub_pb
+add wave -position end  sim:/lab4_tb/uut/op
+add wave -position end  sim:/lab4_tb/uut/a_to_bcd
+add wave -position end  sim:/lab4_tb/uut/b_to_bcd
+add wave -position end  sim:/lab4_tb/uut/result
+add wave -position end  sim:/lab4_tb/uut/a
+add wave -position end  sim:/lab4_tb/uut/b
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/ilg9251/CPET343_HDL/lab4/sim/script/wave.do
+do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:30:59 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/synchronizer_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronizer_3bit
+# -- Compiling architecture beh of synchronizer_3bit
+# End time: 15:30:59 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:30:59 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/rising_edge_synchronizer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity rising_edge_synchronizer
+# -- Compiling architecture arch of rising_edge_synchronizer
+# End time: 15:30:59 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:30:59 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/bcd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity bcd
+# -- Compiling architecture arch of bcd
+# End time: 15:30:59 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:30:59 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/add_or_sub.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity add_or_sub
+# -- Compiling architecture arch of add_or_sub
+# End time: 15:30:59 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:30:59 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/lab4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity lab4
+# -- Compiling architecture arch of lab4
+# End time: 15:30:59 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:30:59 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../src/lab4_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Compiling entity lab4_tb
+# -- Compiling architecture test of lab4_tb
+# End time: 15:30:59 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:31:00 on Sep 30,2026, Elapsed time: 0:02:33
+# Errors: 12, Warnings: 2
+# vsim -voptargs="+acc" lab4_tb 
+# Start time: 15:31:00 on Sep 30,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt4
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.lab4_tb(test)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.lab4(arch)#1
+# Loading work.synchronizer_3bit(beh)#1
+# Loading work.rising_edge_synchronizer(arch)#1
+# Loading work.add_or_sub(arch)#1
+# Loading work.bcd(arch)#1
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: ilg9251  Hostname: GOL-1360-01  ProcessID: 18748
+#           Attempting to use alternate WLF file "./wlftvzmne2".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftvzmne2
+# ** Note: ****************** sequential testbench start ****************
+#    Time: 0 ns  Iteration: 0  Instance: /lab4_tb
+# ** Note: ****************** sequential testbench stop ****************
+#    Time: 1290 ns  Iteration: 0  Instance: /lab4_tb
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/ilg9251/CPET343_HDL/lab4/sim/script/wave.do
+do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:36:08 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/synchronizer_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity synchronizer_3bit
+# -- Compiling architecture beh of synchronizer_3bit
+# End time: 15:36:08 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:36:08 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/rising_edge_synchronizer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity rising_edge_synchronizer
+# -- Compiling architecture arch of rising_edge_synchronizer
+# End time: 15:36:08 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:36:09 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/bcd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity bcd
+# -- Compiling architecture arch of bcd
+# End time: 15:36:09 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:36:09 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/add_or_sub.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity add_or_sub
+# -- Compiling architecture arch of add_or_sub
+# End time: 15:36:09 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:36:09 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../../src/lab4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity lab4
+# -- Compiling architecture arch of lab4
+# End time: 15:36:09 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2019.2 Compiler 2019.04 Apr 17 2019
+# Start time: 15:36:09 on Sep 30,2026
+# vcom -reportprogress 300 -93 -work work ../src/lab4_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Compiling entity lab4_tb
+# -- Compiling architecture test of lab4_tb
+# End time: 15:36:09 on Sep 30,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:36:10 on Sep 30,2026, Elapsed time: 0:05:10
+# Errors: 7, Warnings: 2
+# vsim -voptargs="+acc" lab4_tb 
+# Start time: 15:36:10 on Sep 30,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.lab4_tb(test)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.lab4(arch)#1
+# Loading work.synchronizer_3bit(beh)#1
+# Loading work.rising_edge_synchronizer(arch)#1
+# Loading work.add_or_sub(arch)#1
+# Loading work.bcd(arch)#1
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: ilg9251  Hostname: GOL-1360-01  ProcessID: 18748
+#           Attempting to use alternate WLF file "./wlftz9itst".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftz9itst
+# ** Note: ****************** sequential testbench start ****************
+#    Time: 0 ns  Iteration: 0  Instance: /lab4_tb
+# ** Note: ****************** sequential testbench stop ****************
+#    Time: 1290 ns  Iteration: 0  Instance: /lab4_tb
+# End time: 15:38:41 on Sep 30,2026, Elapsed time: 0:02:31
+# Errors: 15, Warnings: 2
