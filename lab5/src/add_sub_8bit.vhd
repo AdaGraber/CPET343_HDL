@@ -9,8 +9,8 @@ entity add_sub_8bit is
     reset    : in std_logic;
     a_in       : in std_logic_vector(7 downto 0);
     b_in       : in std_logic_vector(7 downto 0);
-    add_out : out std_logic_vector (7 downto 0);
-    sub_out : out std_logic_vector (7 downto 0)
+    add_out : out std_logic_vector (8 downto 0);
+    sub_out : out std_logic_vector (8 downto 0)
   );
 end entity;
 
@@ -24,8 +24,8 @@ begin
       add_out <= (others => '0');
       sub_out <= (others => '0');
     elsif (rising_edge(CLOCK_50)) then
-      add_out <= a_in + b_in;
-      sub_out <= a_in - b_in;
+      add_out <= ('0' & a_in) + ('0' & b_in);
+      sub_out <= ('0'& a_in) - ('0'& b_in);
     end if;
   end process;
 end architecture;

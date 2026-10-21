@@ -16,16 +16,18 @@ end entity;
 
 architecture arch of lab5 is
   --signals
-  signal key      : std_logic_vector(3 downto 0);
-  signal sw       : std_logic_vector(7 downto 0);
-  signal a        : std_logic_vector(7 downto 0);
-  signal b        : std_logic_vector(7 downto 0);
-  signal sum      : std_logic_vector(7 downto 0);
-  signal diff     : std_logic_vector(7 downto 0);
-  signal disp_num : std_logic_vector(7 downto 0);
+  signal key      : std_logic_vector(3 downto 0) := (others => '0');
+  signal sw       : std_logic_vector(7 downto 0) := (others => '0');
+  signal a        : std_logic_vector(7 downto 0) := (others => '0');
+  signal a_disp   : std_logic_vector(8 downto 0) := (others => '0');
+  signal b        : std_logic_vector(7 downto 0) := (others => '0');
+  signal b_disp   : std_logic_vector(8 downto 0) := (others => '0');
+  signal sum      : std_logic_vector(8 downto 0) := (others => '0');
+  signal diff     : std_logic_vector(8 downto 0) := (others => '0');
+  signal disp_num : std_logic_vector(8 downto 0) := (others => '0');
 
   --state machines
-  type state_type is (RESTART, input_a, input_b, disp_sum, disp_diff);
+  type state_type is (input_a, input_b, disp_sum, disp_diff);
   signal present_state, next_state : state_type;
 
   --components
@@ -49,7 +51,7 @@ architecture arch of lab5 is
 
   component bcd_8bit is
     port (
-      in_num           : in std_logic_vector(7 downto 0);
+      in_num           : in std_logic_vector(8 downto 0);
       HEX2, HEX1, HEX0 : out std_logic_vector (6 downto 0)
     );
   end component;
@@ -60,8 +62,8 @@ architecture arch of lab5 is
       reset    : in std_logic;
       a_in     : in std_logic_vector(7 downto 0);
       b_in     : in std_logic_vector(7 downto 0);
-      add_out  : out std_logic_vector (7 downto 0);
-      sub_out  : out std_logic_vector (7 downto 0)
+      add_out  : out std_logic_vector (8 downto 0);
+      sub_out  : out std_logic_vector (8 downto 0)
     );
   end component;
 begin
@@ -103,56 +105,66 @@ begin
     add_out  => sum,
     sub_out  => diff
   );
+
+  --append 0 onto a and b to put onto display
+  app : process (CLK_50, reset)
+  begin
+    if (reset = '1') then
+      a_disp <= (others => '0');
+      b_disp <= (others => '0');
+    elsif (rising_edge(CLK_50)) then
+      a_disp <= '0' & a;
+      b_disp <= '0' & b;
+    end if;
+  end process;
+
   --state synchronization
   synch : process (reset, CLK_50)
   begin
     if (reset = '1') then
-      present_state <= RESTART;
+      present_state <= input_a;
     elsif (rising_edge(CLK_50)) then
       present_state <= next_state;
     end if;
   end process;
 
   --state transition logic
-  trans : process (present_state, sw)
+  trans : process (reset, present_state)
   begin
-    case(present_state) is
-      when RESTART =>
+    if (reset = '1') then
       next_state <= input_a;
-      when input_a =>
-      if (key(0) = '0') then
-        next_state <= input_b;
-      else
-        next_state <= next_state;
-      end if;
-      when input_b =>
-      if (key(1) = '0') then
-        next_state <= disp_sum;
-      else
-        next_state <= next_state;
-      end if;
-      when disp_sum =>
-      if (key(2) = '0') then
-        next_state <= disp_diff;
-      else
-        next_state <= next_state;
-      end if;
-      when disp_diff =>
-      if (key(3) = '0') then
+    else
+      next_state <= present_state;
+      case(present_state) is
+        when input_a =>
+        if (key(0) = '1') then
+          next_state <= input_b;
+        end if;
+        when input_b =>
+        if (key(0) = '1') then
+          next_state <= disp_sum;
+        end if;
+        when disp_sum =>
+        if (key(0) = '1') then
+          next_state <= disp_diff;
+        end if;
+        when disp_diff =>
+        if (key(0) = '1') then
+          next_state <= input_a;
+        end if;
+        when others =>
         next_state <= input_a;
-      else
-        next_state <= next_state;
-      end if;
-    end case;
+      end case;
+    end if;
   end process;
 
   --control state led signifiers
-  led : process (CLK_50)
+  led : process (reset)
   begin
-    if (rising_edge(CLK_50)) then
+    if (reset = '1') then
+      LEDR <= "0000";
+    else
       case (present_state) is
-        when RESTART =>
-          LEDR <= "0000";
         when input_a =>
           LEDR <= "0001";
         when input_b =>
@@ -161,43 +173,41 @@ begin
           LEDR <= "0100";
         when disp_diff =>
           LEDR <= "1000";
+        when others =>
+          LEDR <= "0000";
       end case;
     end if;
   end process;
 
   --when in input a state, store sw into a
-  assign_num : process (present_state)
+  sw_to_num : process (CLK_50, reset)
   begin
-    case(present_state) is
-      when input_a =>
-      a <= sw;
-      when others =>
-      a <= a;
-    end case;
-  end process;
-
-  --when in input b state, store sw into b
-  assign_b : process (present_state)
-  begin
-    case(present_state) is
-      when input_b =>
-      b <= sw;
-      when others =>
-      b <= b;
-    end case;
+    if (reset = '1') then
+      a <= (others => '0');
+      b <= (others => '0');
+    elsif (rising_edge(CLK_50)) then
+      if (present_state = input_a) then
+        a <= sw;
+      elsif (present_state = input_b) then
+        b <= sw;
+      else
+        a <= a;
+        b <= b;
+      end if;
+    end if;
   end process;
 
   --determine what disp should be
   disp : process (CLK_50)
   begin
-    if (rising_edge(CLK_50)) then
+    if (reset = '1') then
+      disp_num <= (others => '0');
+    elsif (rising_edge(CLK_50)) then
       case (present_state) is
-        when RESTART        =>
-          disp_num <= (others => '0');
-        when input_a        =>
-          disp_num <= a;
+        when input_a =>
+          disp_num <= a_disp;
         when input_b =>
-          disp_num <= b;
+          disp_num <= b_disp;
         when disp_sum =>
           disp_num <= sum;
         when disp_diff =>
