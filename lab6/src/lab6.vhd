@@ -1,0 +1,175 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity lab6 is
+  port (
+    CLOCK_50         : in std_logic;
+    in_exe           : in std_logic;
+    reset         : in std_logic;
+    in_op            : in std_logic_vector (1 downto 0);
+    in_sw            : in std_logic_vector (7 downto 0);
+    HEX2, HEX1, HEX0 : out std_logic_vector(6 downto 0);
+    LEDS             : out std_logic_vector(1 downto 0)
+  );
+end lab6;
+
+architecture rtl of lab6 is
+  --components
+  component generic_synchronizer is
+    generic (
+      num_bits : integer range 0 to 9 := 7
+    );
+    port (
+      CLOCK_50 : in std_logic;
+      reset    : in std_logic;
+      async_in : in std_logic_vector(num_bits downto 0);
+      sync_out : out std_logic_vector(num_bits downto 0)
+    );
+  end component;
+
+  --rising edge synchronizer
+  component rising_edge_synchronizer is
+    port (
+      CLOCK_50 : in std_logic;
+      reset    : in std_logic;
+      async_in : in std_logic;
+      sync_out : out std_logic
+    );
+  end component;
+
+  --ALU
+  component ALU is
+    port (
+      reset  : in std_logic;
+      a      : in std_logic_vector(7 downto 0);
+      b      : in std_logic_vector(7 downto 0);
+      op     : in std_logic_vector(1 downto 0); -- 00: add, 01: sub, 10: mult, 11: div
+      result : out std_logic_vector(7 downto 0)
+    );
+  end component;
+
+  --bcd that then goes to hex
+  component bcd_8bit is
+    port (
+      in_num           : in std_logic_vector(7 downto 0);
+      HEX2, HEX1, HEX0 : out std_logic_vector (6 downto 0)
+    );
+  end component;
+
+  component memory is
+    generic (
+      addr_width : integer := 2;
+      data_width : integer := 8);
+    port (
+      clk  : in std_logic;
+      we   : in std_logic;
+      addr : in std_logic_vector(addr_width - 1 downto 0);
+      din  : in std_logic_vector(data_width - 1 downto 0);
+      dout : out std_logic_vector(data_width - 1 downto 0)
+    );
+  end component;
+
+  --mem goes here?
+
+  --signals
+  signal mem_out        : std_logic_vector(7 downto 0);
+  signal exe            : std_logic;
+  signal op             : std_logic_vector(1 downto 0);
+  signal sw             : std_logic_vector(7 downto 0);
+  signal result         : std_logic_vector(7 downto 0);
+  signal result_confirm : std_logic_vector(7 downto 0);
+  signal we             : std_logic;
+  signal addr           : std_logic_vector(1 downto 0);
+begin
+
+  --port maps
+  sw_sync : generic_synchronizer
+  generic map(
+    num_bits => 7
+  )
+  port map
+  (
+    CLOCK_50 => CLOCK_50,
+    reset    => reset,
+    async_in => in_sw,
+    sync_out => sw
+  );
+
+  op_sync : generic_synchronizer
+  generic map(
+    num_bits => 1
+  )
+  port map
+  (
+    CLOCK_50 => CLOCK_50,
+    reset    => reset,
+    async_in => in_op,
+    sync_out => op
+  );
+
+  exe_sync : rising_edge_synchronizer
+  port map
+  (
+    CLOCK_50 => CLOCK_50,
+    reset    => reset,
+    async_in => in_exe,
+    sync_out => exe
+  );
+
+  bcd_disp : bcd_8bit
+  port map
+  (
+    in_num => result_confirm,
+    HEX2   => HEX2,
+    HEX1   => HEX1,
+    HEX0   => HEX0
+  );
+
+  mem_storage : memory
+  generic map(
+    addr_width => 2,
+    data_width => 8
+  )
+  port map
+  (
+    clk  => CLOCK_50,
+    we   => we,
+    addr => addr,
+    din  => result_confirm,
+    dout => mem_out
+  );
+
+  alu_ops : alu
+  port map
+  (
+    reset  => reset,
+    a      => mem_out,
+    b      => sw,
+    op     => op,
+    result => result
+  );
+
+  --processes 
+  confirm_result : process (CLOCK_50, reset)
+  begin
+    if (reset = '0') then
+      addr           <= "00";
+      result_confirm <= (others => '0');
+      we             <= '1';
+    elsif (rising_edge(CLOCK_50)) then
+      if (exe = '1') then
+        addr           <= addr + '1';
+        result_confirm <= result;
+        we             <= '1';
+      else
+        we             <= '0';
+        result_confirm <= result_confirm;
+        addr           <= addr;
+      end if;
+    end if;
+  end process;
+  
+  leds <= op;
+end architecture;

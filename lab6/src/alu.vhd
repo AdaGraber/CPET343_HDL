@@ -28,7 +28,7 @@ div_temp  <= std_logic_vector(unsigned(a) / unsigned(b));
 
 process(reset,a,b,op,mult_temp,div_temp)
   begin
-    if (reset = '1') then 
+    if (reset = '0') then 
       result <= (others => '0');
     elsif (op = "00") then
       result  <= std_logic_vector(unsigned(a) + unsigned(b));
